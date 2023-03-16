@@ -1,0 +1,55 @@
+.cookieConsent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: #f5f5f5;
+    padding: 12px 20px;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 16px;
+    height: 200px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.icon {
+    margin-right: 10px;
+    font-size: 1.5rem;
+    width: 40%;
+    color: #8B5A2B;
+}
+
+.button {
+    background-color: #0073E6;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 20px;
+    width: 30%;
+}
+
+.button:hover {
+    background-color: #DA3A3A;
+}
+
+.button:active {
+    background-color: #0055B3;
+}

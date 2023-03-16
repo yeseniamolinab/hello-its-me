@@ -1,0 +1,55 @@
+.footer {
+    background-color: #000;
+    color: #0070F3;
+    padding: 1rem;
+    text-align: center;
+    height: 100px;
+    font-weight: 600;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    width: 100vw;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    list-style: none;
+}
+
+.icon {
+    margin: 0 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.icon:hover {
+    color: #DA3A3A;
+    transition: 0.25s ease-in-out;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .footer {
+      position: fixed;
+      bottom: 0;
+    }
+
+    .icon {
+        width: 20px;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .icon {
+      width: 25px;
+    }
+  }
+  

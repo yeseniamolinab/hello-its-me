@@ -1,0 +1,64 @@
+.timeline {
+    margin-top: 30px;
+    position: relative;
+}
+
+.timeline::after {
+    background: linear-gradient(to top, rgba(134, 214, 243, 0) 0%, #0073E6 100%);
+    left: 42px;
+    width: 2px;
+    top: 9px;
+    height: 100%;
+    position: absolute;
+    content: "";
+}
+
+.timelineItem {
+    position: relative;
+    padding-left: 60px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+}
+
+.itemTitle {
+    padding-bottom: 1rem;
+}
+
+.itemDescription::after {
+    content: attr(data-year);
+    position: absolute;
+    top: 0;
+    left: 37px;
+    width: 8px;
+    height: 8px;
+    line-height: 0.6;
+    border: 2px solid #fff;
+    font-size: 12px;
+    text-indent: -35px;
+    border-radius: 50%;
+    color: #626262;
+    background: linear-gradient(to bottom, #0073E6 0%, #0055B3 100%);
+}
+
+.current {
+    background-color: rgba(65,137,230,.15);
+    border-color: transparent;
+    color: #0073E6;
+    padding: 10px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.span {
+    display: block;
+}
+
+.link {
+    cursor: pointer;
+    text-decoration: none;
+}
+  
+.link:hover {
+    color: #DA3A3A;
+    transition: 0.25s ease-in-out;
+}

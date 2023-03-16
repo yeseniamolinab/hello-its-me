@@ -1,0 +1,114 @@
+.navItem {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navItem:hover {
+  color: #DA3A3A;
+  text-decoration: none;
+  transition: 0.25s ease-in-out;
+}
+
+.header {
+    display: grid;
+    grid-template-areas: "name nav";
+    padding: 10px;
+    padding-top: 3rem;
+    margin: auto;
+    max-width: 90%;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    height: 100px;
+    background-color: white;
+    z-index: 1;
+  }
+
+  .navigation {
+    grid-area: nav;
+    display: grid;
+    grid-template-columns: repeat(4, 10px);
+    justify-items: self-start;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  .active {
+    color: #1C304A;
+    text-decoration: none;
+    transition: 0.25s ease-in-out;
+  }
+
+  .header h2 {
+    grid-area: name;
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin: 0;
+    color: #0073E6;
+    font-family: 'Black Han Sans', sans-serif;
+    text-transform: uppercase;
+  }
+
+  .resume {
+    border: solid 1px #0070F3;
+    border-radius: 8px;
+    padding: 12px;
+    text-decoration: none;
+  }
+
+  .resume:hover {
+    background-color: #0070F3;
+    color: white;
+    transition: 0.25s ease-in-out;
+    text-decoration: none;
+  }
+
+  .burger {
+    display: none;
+  }
+
+  @media (max-width: 700px) {
+    .header {
+      grid-template-areas: "name burger" "nav nav";
+      padding-top: 2rem;
+    }
+    .navigation {
+      grid-template-rows: repeat(4, auto);
+      grid-template-columns: none;
+      grid-row-gap: 20px;
+      justify-self: center;
+      padding-top: 1rem;
+      background-color: white;
+      width: 100%;
+      padding-bottom: 32px;
+    }
+    .burger {
+      display: block;
+      width: 20px;
+      grid-area: burger;
+      cursor: pointer;
+      justify-self: end;
+    }
+
+    .resume {
+      border: none;
+      border-radius: unset;
+      padding: 0;
+    }
+
+    .icon {
+      font-size: 24px;
+    }
+  }
