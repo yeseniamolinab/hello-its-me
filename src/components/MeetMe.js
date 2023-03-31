@@ -2,7 +2,6 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 
 const MeetMe = ({ profilePhoto }) => {
-  console.log(profilePhoto);
   return (
     <section id='hero-section' className={styles.hero}>
       <div className={styles.content}>
@@ -33,7 +32,7 @@ const MeetMe = ({ profilePhoto }) => {
 
 // let's set a default photo
 MeetMe.defaultProps = {
-  profilePhoto: 'test.jpg',
+  profilePhoto: 'yesi-3-blue.jpeg',
 };
 
 export default MeetMe;

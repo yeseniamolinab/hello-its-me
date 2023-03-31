@@ -5,7 +5,7 @@
     text-align: center;
     height: 100px;
     font-weight: 600;
-    position: sticky;
+    position: relative;
     bottom: 0;
     left: 0;
     right: 0;
@@ -38,7 +38,7 @@
 /* Media query for smaller screens */
 @media (max-width: 768px) {
     .footer {
-      position: fixed;
+      position: relative;
       bottom: 0;
     }
 

@@ -1,0 +1,78 @@
+.resume {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.document {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.documentPage > canvas {
+    max-width: 100%;
+    height: auto !important;
+}
+
+.download {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 90%;
+}
+
+.a {
+    color: #000;
+    font-weight: 600;
+}
+
+.error {
+    color: #DA3A3A;
+}
+
+.icon {
+    margin: 0 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    max-width: 16px;
+}
+
+.loadingWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+}
+
+.loading {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 4px solid #0073E6;
+    border-right: 4px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+  .loading::after {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border-left: 4px solid #1C304A;
+    border-bottom: 4px solid transparent;
+    animation: rotation 0.5s linear infinite reverse;
+  }
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 

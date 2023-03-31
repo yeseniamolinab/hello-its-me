@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin, faTwitter, faMastodon } from '@fortawesome/free-brands-svg-icons';
 import styles from '@/styles/Footer.module.css';
 
 const Footer = () => {
@@ -14,6 +14,9 @@ const Footer = () => {
                 </a>
                 <a href="https://twitter.com/yeseniamolinab" className={styles.icon} target="_blank" rel="noopener noreferrer" aria-label='Follow me on twitter'>
                     <FontAwesomeIcon icon={faTwitter} fixedWidth />
+                </a>
+                <a href="https://mastodon.social/@yesimolina" className={styles.icon} target="_blank" rel="noopener noreferrer" aria-label='Follow me on mastodon'>
+                    <FontAwesomeIcon icon={faMastodon} fixedWidth />
                 </a>
             </div>
             <p className={styles.p}>

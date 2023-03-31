@@ -13,7 +13,7 @@ export default function Home({ posts }) {
   return (
     <>
       <Meta title='Yesi Molina - Software Engineer' />
-      <MeetMe profilePhoto={'test.jpg'} />
+      <MeetMe profilePhoto='yesi-3-blue.jpeg' />
       <Link href='/about'>More about me</Link>
 
 

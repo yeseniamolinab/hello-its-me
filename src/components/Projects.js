@@ -13,7 +13,7 @@ const Projects = () => {
                         <div className={styles.itemDescription} data-year='2021'>
                             <p>Support the development and maintenance of several applications, including the action and fundraiser pages.</p>
                             <p>Design and implement A/B tests to increase conversion rates and improve the member experience.</p>
-                            <span className={styles.current}>Current</span>
+                            <span className={styles.current}>Present</span>
                         </div>
                     </div>
                     <div className={styles.timelineItem}>
@@ -47,8 +47,12 @@ const Projects = () => {
                         </div>
                     </div>
                     <div className={styles.timelineItem}>
-                        <h1 className={styles.itemTitle}>Full Stack Developer at Comité directivo estatal PRI</h1>
-                        <div className={styles.itemDescription} data-year='2011'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc sit amet aliquet lacinia, nunc odio aliquam mauris, eget aliquet nisl nisl et nisl. Sed euismod, nunc sit amet aliquet lacinia, nunc odio aliquam mauris, eget aliquet nisl nisl et nisl.</div>
+                        <a className={styles.link} href='#' aria-hidden={true}>
+                            <h1 className={styles.itemTitle}>Full Stack Developer at Comité directivo estatal PRI</h1>
+                        </a>
+                        <div className={styles.itemDescription} data-year='2011'>
+                            <p>Created internal tools to manage political campaigns, including building reports</p>
+                        </div>
                     </div>
                 </div>
             </section>
