@@ -46,6 +46,10 @@ const Header = () => {
         }
     }, []);
 
+    useEffect(() => {
+        setIsNavOpen(false);
+    }, [router.pathname])
+
 
     return (
         <header className={styles.header}>
