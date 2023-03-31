@@ -34,7 +34,7 @@ const Projects = () => {
                             <p>Built A/B tests that improved the conversion rate by 80%</p>
                             <p>Played an active role in migrating legacy systems to Node.js, React, and GraphQL.</p>
                             <p>Helped build the take-out functionality to address the COVID-19 pandemic.</p>
-                            <p>Mentored interns and contributed to the internship program's success.</p>
+                            <p>Mentored interns and contributed to the internship program success.</p>
                         </div>
                     </div>
                     <div className={styles.timelineItem}>
