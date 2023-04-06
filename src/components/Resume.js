@@ -45,7 +45,8 @@ const Resume = () => {
             const objectUrl = URL.createObjectURL(blob);
             window.open(objectUrl, '_blank');
             URL.revokeObjectURL(objectUrl);
-        } catch {
+        } catch (e) {
+            console.error(e);
             setDownloadFailed(true);
         }
     }

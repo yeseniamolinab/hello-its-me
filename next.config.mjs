@@ -23,6 +23,8 @@ export default {
   reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   images: {
+    loader: 'imgix',
+    path: 'https://yesimolinadev.imgix.net/',
     remotePatterns: [
       {
         protocol: 'https',

@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }) {
   return (
     <MDXProvider components={MDXComponents}>
       <Layout>
-      <Component {...pageProps} />
+        <Component {...pageProps} />
       </Layout>
     </MDXProvider>
   );
