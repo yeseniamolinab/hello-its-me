@@ -51,16 +51,6 @@
     transition: 0.25s ease-in-out;
   }
 
-  .header h2 {
-    grid-area: name;
-    font-size: 1.5rem;
-    font-weight: 900;
-    margin: 0;
-    color: #0073E6;
-    font-family: 'Black Han Sans', sans-serif;
-    text-transform: uppercase;
-  }
-
   .resume {
     border: solid 1px #0070F3;
     border-radius: 8px;

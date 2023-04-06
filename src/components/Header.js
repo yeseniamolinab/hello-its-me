@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from '../styles/Header.module.css';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
@@ -53,9 +54,9 @@ const Header = () => {
 
     return (
         <header className={styles.header}>
-            <h2>
-                <Link href={routes.home} className={classNames(styles.navItem, getActiveLinkClass(routes.home, router.pathname))}>YM</Link>
-            </h2>
+            <Link href={routes.home} className={classNames(styles.navItem, getActiveLinkClass(routes.home, router.pathname))}>
+                <Image src='https://yesimolinadev.imgix.net/header-logo.png' alt="logo" width={40} height={17} quality={60} />
+            </Link>
             {(!isMobile || isNavOpen) && (
                 <nav className={styles.navigation}>
                     <Link href={routes.blog} className={classNames(styles.navItem, getActiveLinkClass(routes.blog, router.pathname))}>Blog</Link>

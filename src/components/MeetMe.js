@@ -21,8 +21,8 @@ const MeetMe = ({ profilePhoto }) => {
           className={styles.profilePhoto}
           fill={true}
           priority={true}
-          sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
+          sizes="(max-width: 768px) 50vw,
+              (max-width: 1000px) 50vw,
               33vw"
         />
       </div>
