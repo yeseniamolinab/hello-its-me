@@ -8,7 +8,7 @@ const Meta = ({ title }) => {
         name='keywords'
         content='yesi molina, yesi molina blog, yesi molina personal page, yesi molina software engineer, yesi molina developer, fullstack developer'
       />
-      <meta name='description' content='Personal page of Yesi Molina, Software Engineer' />
+      <meta name='description' content='Hi, I am Yesi Molina 👋 I am a software engineer. I have 12+ years of experience in software development working with different technologies and programming languages.' />
     </Head>
   );
 };
