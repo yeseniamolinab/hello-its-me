@@ -45,7 +45,7 @@ export default function About() {
                       <p>
                         I thrive in Agile teams, prioritizing clean,
                         maintainable code and rigorous testing. Beyond my work,
-                        I find balance outdoors, whether it's hiking the
+                        I find balance outdoors, whether it&apos;s hiking the
                         stunning landscapes around Chihuahua or hitting the
                         tennis courts. I live with my partner and two cats, who
                         keep life lively and full of adventure.

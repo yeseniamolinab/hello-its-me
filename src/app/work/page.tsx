@@ -13,7 +13,7 @@ export default function Work() {
                     Building great software for great companies and nonprofits.
                   </h1>
                   <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-                    I've had the privilege of working with some amazing
+                    I&apos;ve had the privilege of working with some amazing
                     companies and nonprofits over the years. Here is my most
                     recent work experience in chronological order.
                   </p>

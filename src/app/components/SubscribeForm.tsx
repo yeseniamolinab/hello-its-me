@@ -33,7 +33,7 @@ const SubscribeForm: React.FC = () => {
         setMessage(data.error);
         setIsError(true);
       }
-    } catch (error) {
+    } catch {
       setMessage("An unexpected error occurred 😩");
       setIsError(true);
     } finally {

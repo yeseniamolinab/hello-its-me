@@ -15,7 +15,10 @@ export default function NotFound() {
                 Page not found
               </h1>
               <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400 w-3/4">
-              Looks like this page wandered off... just like my cat in a box! This may not be what you were looking for, but feel free to explore the rest of my site. Who knows what interesting things you'll uncover!
+                Looks like this page wandered off... just like my cat in a box!
+                This may not be what you were looking for, but feel free to
+                explore the rest of my site. Who knows what interesting things
+                you&apos;ll uncover!
               </p>
               <Image
                 src="/404.png"

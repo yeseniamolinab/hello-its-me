@@ -3,6 +3,7 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import ThemeSwitch from "@components/globals/ThemeSwitch";
+import Link from "next/link";
 
 const Header: React.FC = () => {
   const pathname = usePathname();
@@ -27,7 +28,7 @@ const Header: React.FC = () => {
                     <div
                       className={`${pathname === "/" ? "hidden" : "h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10"}`}
                     >
-                      <a
+                      <Link
                         className={`cursor-pointer pointer-events-auto`}
                         href="/"
                       >
@@ -38,7 +39,7 @@ const Header: React.FC = () => {
                           alt="Avatar"
                           className="rounded-full bg-zinc-100 object-cover dark:bg-zinc-800 h-9 w-9"
                         />
-                      </a>
+                      </Link>
                     </div>
                   </div>
 
@@ -63,7 +64,7 @@ const Header: React.FC = () => {
                     <nav className="pointer-events-auto block">
                       <ul className="flex rounded-full bg-white/90 px-3 text-sm font-semibold text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
                         <li>
-                          <a
+                          <Link
                             className={`relative block px-3 py-2 transition ${
                               pathname === "/about"
                                 ? "text-sky-500"
@@ -72,10 +73,10 @@ const Header: React.FC = () => {
                             href="/about"
                           >
                             About
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a
+                          <Link
                             className={`relative block px-3 py-2 transition ${
                               pathname === "/work"
                                 ? "text-sky-500"
@@ -84,10 +85,10 @@ const Header: React.FC = () => {
                             href="/work"
                           >
                             Work
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a
+                          <Link
                             className={`relative block px-3 py-2 transition ${
                               pathname === "/blog"
                                 ? "text-sky-500"
@@ -96,7 +97,7 @@ const Header: React.FC = () => {
                             href="/blog"
                           >
                             Blog
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </nav>
