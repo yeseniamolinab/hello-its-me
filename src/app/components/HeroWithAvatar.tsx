@@ -15,7 +15,9 @@ const HeroWithAvatar: React.FC<HeroWithAvatarProps> = ({ avatarUrl }) => {
         height={150}
         width={150}
         alt="Avatar"
+        priority
         className="rounded-full aspect-square object-cover"
+        sizes="150px"
       />
       <h1
         className={`text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100 mt-4 ${interBlack.className}`}

@@ -25,6 +25,8 @@ export default function NotFound() {
                 alt="A cat in a box"
                 width={400}
                 height={400}
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
                 className="mt-8"
               />
               <Link

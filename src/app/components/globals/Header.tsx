@@ -24,7 +24,7 @@ const Header: React.FC = () => {
             <div className="relative px-4 sm:px-8 lg:px-12">
               <div className="mx-auto max-w-2xl lg:max-w-5xl">
                 <div className="relative flex gap-4">
-                  <div className="flex flex-1">
+                  <div className="flex md:flex-1">
                     <div
                       className={`${pathname === "/" ? "hidden" : "h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10"}`}
                     >
@@ -43,7 +43,7 @@ const Header: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-1 justify-end md:justify-center">
+                  <div className="flex flex-1 lg:justify-end md:justify-center justify-evenly">
                     <div
                       hidden
                       style={{
