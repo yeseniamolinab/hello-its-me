@@ -33,7 +33,7 @@ const WorkTimeline: React.FC = () => {
           <a
             href="/Yesenia_MolinaBejarano_Resume.pdf"
             target="_blank"
-            className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-sky-400 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-sky-600 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
           >
             <svg
               className="w-3.5 h-3.5 me-2.5"
@@ -101,7 +101,7 @@ const WorkTimeline: React.FC = () => {
       <p className="mt-12 text-base font-semibold text-zinc-800 dark:text-zinc-100">
         For the full list of my work experience, please download my resume{" "}
         <a
-          className="text-sky-500 cursor-pointer underline hover:text-sky-400 dark:hover:text-sky-400"
+          className="text-sky-700 cursor-pointer underline hover:text-sky-600 dark:hover:text-sky-600"
           href="/Yesenia_MolinaBejarano_Resume.pdf"
           target="_blank"
         >

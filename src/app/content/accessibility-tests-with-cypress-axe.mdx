@@ -1,0 +1,284 @@
+---
+title: Accessibility tests with cypress-axe
+description: Discover how to integrate cypress-axe library into your Cypress.io test suite. Add reliable a11y testing that ensures an inclusive user experience for all.
+preview: /a11y.jpg
+keywords:
+  - a11y
+  - accessibility
+  - cypress-axe
+  - cypress
+tags:
+  - automated testing
+  - a11y
+categories:
+  - Accessibility
+date: 2024-11-06T21:28:19.621Z
+---
+
+import CodeBlock from "@components/CodeBlock";
+import Image from "next/image";
+
+Making web development accessible is incredibly important! It means that everyone, regardless of their abilities or disabilities, can enjoy using websites. When developers create accessible digital content, they not only reach a larger audience but also meet legal standards and help foster inclusivity.
+
+<img
+  src="/a11y.jpg"
+  alt="blog featured image showing keyboard with accessibility icons"
+/>
+
+But when you need to verify that your site is accessible, it is good to have an automated way to do so, so you can spend more time writing awesome code rather than manually testing your applications. Here enters Cypress and cypress-axe!
+
+If you are a software engineer, having automated testing skills is something really handy to have in your toolbelt.
+For me, the tool of choice is [Cypress.io](https://www.cypress.io/), as I primarily work with TypeScript and JavaScript, and Cypress makes it very easy to write your tests and integrate them into your CI/CD workflow.
+
+Cypress just released an [add-on](https://www.cypress.io/blog/introducing-cypress-accessibility) so you can have accessibility testing out of the box, however, in this tutorial, we will use [cypress-axe](https://github.com/component-driven/cypress-axe) independently, so you know how to use it in case you don’t have the budget to pay for the add-on.
+
+For this example, I’ll use a very simple page where I show a QR code because the goal is to help you set up Cypress and cypress-axe, not build a super complex website. The example is based on one of the [Frontend Mentor challenges](https://www.frontendmentor.io/learning-paths/getting-started-on-frontend-mentor-XJhRWRREZd/steps/6728feee42aa167de00b8406/challenge/start) (If you haven’t tried Frontend Mentor, I highly recommend you check them out!).
+
+## Let’s get started
+
+### Installing Cypress and cypress-axe
+
+Run this command to install Cypress and cypress-axe (I used pnpm, but you can use the package manager of your choice):
+
+<CodeBlock
+  language="bash"
+  title="Installing dependencies"
+  code="pnpm install cypress cypress-axe --save-dev"
+/>{" "}
+
+Once you have installed the packages, you can open Cypress so it creates the configuration files you need.
+
+<CodeBlock
+  language="bash"
+  title="Configure Cypress"
+  code="pnpm run cypress open"
+/>{" "}
+
+<div
+  style={{
+    position: "relative",
+    paddingBottom: "66.66666666666666%",
+    height: "0",
+  }}
+>
+  <iframe
+    src="https://www.loom.com/embed/383447b8c5b64c929c540d8a09940492?sid=da38ac3c-f4f8-4e1d-9213-f34e75793ce0"
+    frameBorder="0"
+    title="Cypress configuration"
+    mozallowfullscreen="true"
+    allowFullScreen
+    style={{
+      position: "absolute",
+      top: "0",
+      left: "0",
+      width: "100%",
+      height: "100%",
+    }}
+  ></iframe>
+</div>
+
+Now you can create your first spec, add a new file, `spec.cy.ts` in the `./cypress/e2e/` folder, and add the following code:
+
+<CodeBlock
+  language="typescript"
+  title="spec.cy.ts"
+  code={`describe('my first cypress spec', () => {
+  it('renders the page', () => {
+    cy.visit('/');
+    cy.get('section[data-testid="qr-container"]').should('exist');
+    cy.get('div[data-testid="qr-code"]').should('exist');
+    cy.get('h1[data-testid="qr-title"]').should('exist');
+    cy.get('p[data-testid="qr-description"]').should('exist');
+    });
+})`}
+/>
+
+You have your first spec! Now we’re ready to do a11y testing.
+
+## Injecting cypress-axe into our tests.
+
+To run accessibility tests, we must inject cypress-axe into each test after the `cy.visit` is called, but adding that on each test is repetitive, so we’ll overwrite the visit command.
+Go to `cypress/support/commands.ts` and add the following code:
+
+<CodeBlock
+  language="typescript"
+  title="commands.ts"
+  code={`import 'cypress-axe';
+
+Cypress.Commands.overwrite(
+'visit',
+(originalFn: Cypress.CommandOriginalFn<'visit'>, url: string | Partial<Cypress.VisitOptions>, options?: Partial<Cypress.VisitOptions>) => {
+const baseUrl = Cypress.config("baseUrl")?.replace(/\/$/, "") || process.env.CYPRESS_BASE_URL;
+originalFn({
+url: \`\${baseUrl}\${url}\`,
+...options,
+});
+
+    // Inject Axe after the page loads
+    cy.then(() => {
+        cy.injectAxe();
+    });
+
+});`}
+/>
+
+## Checking our page accessibility
+
+Once Axe is injected, we can add this to our spec:
+
+<CodeBlock
+  language="typescript"
+  title="spec.cy.ts"
+  code={`describe('my first cypress spec', () => {
+    it('renders the page', () => {
+        //... previous code
+        // Check accessibility
+        cy.checkA11y();
+    });
+});`}
+/>
+
+## Configuring Axe
+
+The axe package has many [configurations](https://www.deque.com/axe/documentation/api-documentation/#api-name-axeconfigure) you can set, but for this example, we will set the `runOnly` and `includedImpacts`.
+Go to the `cypress/support/commands.ts` file so we can overwrite the `checkA11y` command.
+
+<CodeBlock
+  language="typescript"
+  title="commands.ts"
+  code={`Cypress.Commands.overwrite('checkA11y', (originalFn, context, options) => {
+    cy.checkA11y
+    originalFn(context, {
+        runOnly: {
+          type: "tag",
+          values: [
+            "wcag2a",
+            "wcag2aa",
+            "wcag21a",
+            "wcag21aa",
+            "cat.keyboard",
+            "cat.structure",
+          ],
+        },
+        includedImpacts: ["critical", "serious", "moderate"],
+      });
+  });`}
+/>
+
+## Running the tests
+
+Now you can run your tests either in the Cypress GUI or in the terminal with the following command:
+
+<CodeBlock
+  language="bash"
+  title="Running the tests"
+  code="pnpm run cypress run"
+/>
+
+As you can see we have one accessibility violation:
+
+<img
+  src="/a11y-violation-error.png"
+  alt="Image of the cypress GUI showing the accessibility violation"
+/>
+
+## Adding a custom violation callback
+
+Is hard to understand what the error is at first glance, so we can add a custom violation callback to show the violations in a more readable way.
+
+Create a `helpers.ts` file in the `cypress/support` folder and add the following code:
+
+<CodeBlock
+  language="typescript"
+  title="helpers.ts"
+  code={`const severityIndicators = {
+    minor: "⚪️",
+    moderate: "🟡",
+    serious: "🟠",
+    critical: "🔴",
+  };
+  
+  export function terminalLog(violations: Result[]): void {
+    cy.task(
+      'log',
+      \`\${violations.length} accessibility violation \${violations.length === 1 ? "" : "s"} \${violations.length === 1 ? "was" : "were"} detected\`
+    );
+    const violationData = violations.map(({ id, impact, description, nodes }) => ({
+      id,
+      impact: \`\${impact} \${severityIndicators[impact || "minor"]}\`,
+      description,
+      nodes: nodes.length // Only count the number of nodes with issues
+    }));
+  
+    cy.task('table', violationData);
+  }`}
+/>
+
+For this custom violation callback to work, you need to add the following code to the `setupNodeEvents` in your `cypress.config.ts`:
+
+<CodeBlock
+  language="typescript"
+  title="cypress.config.ts"
+  code={`import { defineConfig } from "cypress";
+
+export default defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+      on('task', {
+        log(message) {
+          console.log(message);
+          return null;
+        },
+        table(data) {
+          console.table(data);
+          return null;
+        }
+      });
+
+      return config;
+    },
+    baseUrl: "http://localhost:3000",
+
+},
+});
+`}
+/>
+
+Now you can add the custom violation callback to the `checkA11y` command:
+
+<CodeBlock
+  language="typescript"
+  title="commands.ts"
+  code={`
+  import { terminalLog } from "./helpers";
+  Cypress.Commands.overwrite('checkA11y', (originalFn, context, options) => {
+    cy.checkA11y
+    originalFn(context, {
+        runOnly: {
+          type: "tag",
+          values: [
+            "wcag2a",
+            "wcag2aa",
+            "wcag21a",
+            "wcag21aa",
+            "cat.keyboard",
+            "cat.structure",
+          ],
+        },
+        includedImpacts: ["critical", "serious", "moderate"],
+        terminalLog, // Add the custom violation callback
+      });
+  });`}
+/>
+
+Now you can run your tests again and see the violations in a more readable way:
+
+<img
+  src="/a11y-violation-error-terminal.png"
+  alt="Image of the terminal showing the accessibility violations in a more readable way"
+/>
+
+## Conclusion
+
+Integrating cypress-axe into your Cypress test suite is a great way to ensure your website is accessible. It’s easy to set up and provides reliable a11y testing that ensures an inclusive user experience for all.
+If you want to see the full code, you can check it out [here](https://github.com/yeseniamolinab/a11y-with-cypress/tree/main).

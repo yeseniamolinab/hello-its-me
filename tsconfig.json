@@ -22,6 +22,7 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/app/components/*"],
       "@fonts/*": ["./src/app/fonts/*"],
+      "@utils/*": ["./src/app/utils/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

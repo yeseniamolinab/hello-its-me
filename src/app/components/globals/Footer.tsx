@@ -12,25 +12,25 @@ const Footer: React.FC = () => {
                 <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
                   <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200">
                     <a
-                      className="transition hover:text-sky-500 dark:hover:text-sky-400"
+                      className="transition hover:text-sky-700 dark:hover:text-sky-600"
                       href="/about"
                     >
                       About
                     </a>
                     <a
-                      className="transition hover:text-sky-500 dark:hover:text-sky-400"
-                      href="/projects"
+                      className="transition hover:text-sky-700 dark:hover:text-sky-600"
+                      href="/work"
                     >
                       Work
                     </a>
                     <a
-                      className="transition hover:text-sky-500 dark:hover:text-sky-400"
-                      href="/speaking"
+                      className="transition hover:text-sky-700 dark:hover:text-sky-600"
+                      href="/blog"
                     >
-                      Projects
+                      Blog
                     </a>
                   </div>
-                  <p className="text-sm text-zinc-400 dark:text-zinc-500">
+                  <p className="text-sm text-zinc-500 dark:text-zinc-500">
                     © {currentYear} Yesenia Molina Bejarano. All rights
                     reserved.
                   </p>

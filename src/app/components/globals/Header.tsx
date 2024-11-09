@@ -67,8 +67,8 @@ const Header: React.FC = () => {
                           <Link
                             className={`relative block px-3 py-2 transition ${
                               pathname === "/about"
-                                ? "text-sky-500"
-                                : "hover:text-sky-500 dark:hover:text-sky-400"
+                                ? "text-sky-700"
+                                : "hover:text-sky-700 dark:hover:text-sky-600"
                             }`}
                             href="/about"
                           >
@@ -79,8 +79,8 @@ const Header: React.FC = () => {
                           <Link
                             className={`relative block px-3 py-2 transition ${
                               pathname === "/work"
-                                ? "text-sky-500"
-                                : "hover:text-sky-500 dark:hover:text-sky-400"
+                                ? "text-sky-700"
+                                : "hover:text-sky-700 dark:hover:text-sky-600"
                             }`}
                             href="/work"
                           >
@@ -91,8 +91,8 @@ const Header: React.FC = () => {
                           <Link
                             className={`relative block px-3 py-2 transition ${
                               pathname === "/blog"
-                                ? "text-sky-500"
-                                : "hover:text-sky-500 dark:hover:text-sky-400"
+                                ? "text-sky-700"
+                                : "hover:text-sky-700 dark:hover:text-sky-600"
                             }`}
                             href="/blog"
                           >

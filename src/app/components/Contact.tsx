@@ -6,7 +6,7 @@ const Contact: React.FC = () => {
       <ul role="list">
         <li className="flex items-center">
           <a
-            className="group flex items-center text-sm font-medium text-zinc-800 transition hover:text-sky-500 dark:text-zinc-200 dark:hover:text-sky-500"
+            className="group flex items-center text-sm font-medium text-zinc-800 transition hover:text-sky-700 dark:text-zinc-200 dark:hover:text-sky-700"
             target="_blank"
             href="https://github.com/yeseniamolinab/"
           >
@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
         </li>
         <li className="mt-4 flex items-center">
           <a
-            className="group flex items-center text-sm font-medium text-zinc-800 transition hover:text-sky-500 dark:text-zinc-200 dark:hover:text-sky-500"
+            className="group flex items-center text-sm font-medium text-zinc-800 transition hover:text-sky-700 dark:text-zinc-200 dark:hover:text-sky-700"
             target="_blank"
             href="https://www.linkedin.com/in/yesenia-molina-bejarano/"
           >
@@ -42,7 +42,7 @@ const Contact: React.FC = () => {
         </li>
         <li className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40 flex items-center">
           <a
-            className="group flex items-center text-sm font-medium text-zinc-800 transition hover:text-sky-500 dark:text-zinc-200 dark:hover:text-sky-500"
+            className="group flex items-center text-sm font-medium text-zinc-800 transition hover:text-sky-700 dark:text-zinc-200 dark:hover:text-sky-700"
             href="mailto:yesi@yesimolina.dev"
           >
             <svg

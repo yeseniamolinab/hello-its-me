@@ -37,7 +37,6 @@ const SubscribeForm: React.FC = () => {
       setMessage("An unexpected error occurred 😩");
       setIsError(true);
     } finally {
-      console.log("isError", isError);
       setLoading(false);
       setIsVisible(true);
     }
