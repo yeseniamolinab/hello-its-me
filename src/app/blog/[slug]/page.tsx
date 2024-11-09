@@ -5,9 +5,9 @@ import { Metadata } from "next";
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = params;
+  const { slug } = await params;
   const post = await fetch(`${process.env.SITE_URL}/api/posts?slug=${slug}`);
   const { data } = await post.json();
   const { title, description, keywords, preview } = data;
@@ -25,8 +25,12 @@ export async function generateMetadata({
   };
 }
 
-export default async function Post({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default async function Post({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const post = await fetch(`${process.env.SITE_URL}/api/posts?slug=${slug}`);
   const { data, content } = await post.json();
   const { title, date } = data;
@@ -64,24 +68,25 @@ export default async function Post({ params }: { params: { slug: string } }) {
                           {title}
                         </h1>
                         <time
-                          dateTime="2022-09-05"
-                          className="order-first flex items-center text-base text-zinc-600 dark:text-zinc-500"
+                          dateTime={date}
+                          className="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500"
                         >
-                          <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
+                          <span
+                            className="absolute inset-y-0 left-0 flex items-center"
+                            aria-hidden="true"
+                          >
+                            <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
+                          </span>
                           <span className="ml-3">
                             {new Date(date).toLocaleDateString("en-US", {
                               month: "long",
-                              day: "numeric",
                               year: "numeric",
                             })}
                           </span>
                         </time>
                       </header>
                       <div className="mt-8 prose dark:prose-invert">
-                        <MDXRemote
-                          source={content}
-                          components={{ CodeBlock }}
-                        />
+                        <MDXRemote {...content} components={{ CodeBlock }} />
                       </div>
                     </article>
                   </div>

@@ -5,7 +5,7 @@ import matter from "gray-matter";
 
 const contentDirectory = path.join(process.cwd(), "src/app/content");
 
-export async function GET(request: NextRequest) {
+export async function GET(request: NextRequest): Promise<Response> {
   try {
     const searchParams = request.nextUrl.searchParams;
     const slug = searchParams.get("slug");
@@ -14,29 +14,23 @@ export async function GET(request: NextRequest) {
 
     if (!fs.existsSync(fullPath)) {
       console.log("File does not exist");
-      return (
-        new Response(),
-        {
-          status: 404,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      return new Response(null, {
+        status: 404,
+        headers: new Headers({
+          "Content-Type": "application/json",
+        }),
+      });
     }
 
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const { data, content } = matter(fileContents);
     if (content.trim() === "") {
-      return (
-        new Response(),
-        {
-          status: 404,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      return new Response(null, {
+        status: 404,
+        headers: new Headers({
+          "Content-Type": "application/json",
+        }),
+      });
     }
 
     return new Response(
