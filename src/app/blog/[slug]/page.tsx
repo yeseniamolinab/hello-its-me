@@ -1,11 +1,12 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import CodeBlock from "@/app/components/CodeBlock";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 
-export async function generateMetadata(
-  { params }: { params: { slug: string } },
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const { slug } = params;
   const post = await fetch(`${process.env.SITE_URL}/api/posts?slug=${slug}`);
   const { data } = await post.json();
@@ -28,7 +29,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const post = await fetch(`${process.env.SITE_URL}/api/posts?slug=${slug}`);
   const { data, content } = await post.json();
-  const { title, date, description } = data;
+  const { title, date } = data;
   return (
     <>
       <main className="flex-auto">

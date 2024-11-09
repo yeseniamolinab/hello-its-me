@@ -2,7 +2,6 @@ import { NextRequest } from "next/server";
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
-import { compileMDX } from "next-mdx-remote/rsc";
 
 const contentDirectory = path.join(process.cwd(), "src/app/content");
 

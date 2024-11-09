@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer: React.FC = () => {
@@ -11,24 +12,24 @@ const Footer: React.FC = () => {
               <div className="mx-auto max-w-2xl lg:max-w-5xl">
                 <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
                   <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                    <a
+                    <Link
                       className="transition hover:text-sky-700 dark:hover:text-sky-600"
                       href="/about"
                     >
                       About
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="transition hover:text-sky-700 dark:hover:text-sky-600"
                       href="/work"
                     >
                       Work
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="transition hover:text-sky-700 dark:hover:text-sky-600"
                       href="/blog"
                     >
                       Blog
-                    </a>
+                    </Link>
                   </div>
                   <p className="text-sm text-zinc-500 dark:text-zinc-500">
                     © {currentYear} Yesenia Molina Bejarano. All rights

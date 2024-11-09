@@ -14,8 +14,8 @@ export default function Page() {
                   </h1>
                   <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
                     I write about software, engineering and tech in general when
-                    I have some free time. Here are some of the articles I've
-                    written, I hope you find them useful.
+                    I have some free time. Here are some of the articles
+                    I&apos;ve written, I hope you find them useful.
                   </p>
                 </header>
                 <div className="mt-16 sm:mt-20">
