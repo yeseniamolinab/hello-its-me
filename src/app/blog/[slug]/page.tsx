@@ -12,6 +12,7 @@ export async function generateMetadata({
   console.log("SITE_URL:", process.env.SITE_URL);
   console.log("post", post);
   const { data } = await post.json();
+  console.log("data", data);
   const { title, description, keywords, preview } = data;
 
   return {
@@ -35,6 +36,8 @@ export default async function Post({
   const { slug } = await params;
   const post = await fetch(`${process.env.SITE_URL}/api/posts?slug=${slug}`);
   const { data, content } = await post.json();
+  console.log("data", data);
+  console.log("content", content);
   const { title, date } = data;
   return (
     <>

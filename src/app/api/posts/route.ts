@@ -11,6 +11,7 @@ export async function GET(request: NextRequest): Promise<Response> {
     const slug = searchParams.get("slug");
 
     const fullPath = path.join(contentDirectory, `${slug}.mdx`);
+    console.log("fullPath", fullPath);
 
     if (!fs.existsSync(fullPath)) {
       console.log("File does not exist");
@@ -24,6 +25,8 @@ export async function GET(request: NextRequest): Promise<Response> {
 
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const { data, content } = matter(fileContents);
+    console.log("route data", data);
+    console.log("route content", content);
     if (content.trim() === "") {
       return new Response(null, {
         status: 404,
