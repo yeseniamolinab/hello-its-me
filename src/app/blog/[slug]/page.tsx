@@ -9,6 +9,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = await fetch(`${process.env.SITE_URL}/api/posts?slug=${slug}`);
+  console.log("SITE_URL:", process.env.SITE_URL);
+  console.log("post", post);
   const { data } = await post.json();
   const { title, description, keywords, preview } = data;
 
