@@ -1,7 +1,6 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import CodeBlock from "@/app/components/CodeBlock";
 import { Metadata } from "next";
-import MdxContent from "@/app/components/MdxContent";
 
 export async function generateMetadata({
   params,
