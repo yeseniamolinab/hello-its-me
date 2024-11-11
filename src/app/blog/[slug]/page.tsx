@@ -1,6 +1,7 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import CodeBlock from "@/app/components/CodeBlock";
 import { Metadata } from "next";
+import MdxContent from "@/app/components/MdxContent";
 
 export async function generateMetadata({
   params,
@@ -9,10 +10,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = await fetch(`${process.env.SITE_URL}/api/posts?slug=${slug}`);
-  console.log("SITE_URL:", process.env.SITE_URL);
-  console.log("post", post);
   const { data } = await post.json();
-  console.log("data", data);
   const { title, description, keywords, preview } = data;
 
   return {
@@ -36,8 +34,6 @@ export default async function Post({
   const { slug } = await params;
   const post = await fetch(`${process.env.SITE_URL}/api/posts?slug=${slug}`);
   const { data, content } = await post.json();
-  console.log("data", data);
-  console.log("content", content);
   const { title, date } = data;
   return (
     <>
@@ -74,7 +70,7 @@ export default async function Post({
                         </h1>
                         <time
                           dateTime={date}
-                          className="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500"
+                          className="order-first flex items-center text-base text-zinc-400 dark:text-zinc-200"
                         >
                           <span
                             className="absolute inset-y-0 left-0 flex items-center"
@@ -91,7 +87,10 @@ export default async function Post({
                         </time>
                       </header>
                       <div className="mt-8 prose dark:prose-invert">
-                        <MDXRemote {...content} components={{ CodeBlock }} />
+                        <MDXRemote
+                          source={content}
+                          components={{ CodeBlock }}
+                        />
                       </div>
                     </article>
                   </div>

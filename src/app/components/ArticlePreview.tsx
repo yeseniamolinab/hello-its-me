@@ -24,7 +24,7 @@ const ArticlePreview: React.FC<ArticlePreviewProps> = ({
         </Link>
       </h2>
       <time
-        className="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-500 dark:text-zinc-500 pl-3.5"
+        className="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-500 dark:text-zinc-200 pl-3.5"
         dateTime={date}
       >
         <span
@@ -39,7 +39,7 @@ const ArticlePreview: React.FC<ArticlePreviewProps> = ({
           year: "numeric",
         })}
       </time>
-      <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-500">
+      <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-200">
         {summary}
       </p>
       <div

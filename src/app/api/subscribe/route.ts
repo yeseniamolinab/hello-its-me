@@ -8,8 +8,6 @@ mailchimp.setConfig({
 export async function POST(request: Request) {
   try {
     const { email } = await request.json();
-    console.log("email", email);
-    console.log("MAILCHIMP_API_KEY", process.env.MAILCHIMP_AUDIENCE_ID);
     const audienceId = process.env.MAILCHIMP_AUDIENCE_ID ?? "";
 
     if (!email) {

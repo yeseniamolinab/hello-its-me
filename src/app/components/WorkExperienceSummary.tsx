@@ -59,7 +59,7 @@ const WorkExperienceSummary: React.FC = () => {
               </dd>
               <dt className="sr-only">Date</dt>
               <dd
-                className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
+                className="ml-auto text-xs text-zinc-400 dark:text-zinc-200"
                 aria-label={job.date}
               >
                 <time dateTime="2019">{job.date.split(" - ")[0]}</time>{" "}
