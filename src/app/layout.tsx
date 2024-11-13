@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Header from "./components/globals/Header";
 import Footer from "./components/globals/Footer";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Yesenia Molina Bejarano - Software Engineer",
@@ -52,6 +53,7 @@ export default async function RootLayout({
           </div>
         </div>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
