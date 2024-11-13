@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Header from "./components/globals/Header";
 import Footer from "./components/globals/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Yesenia Molina Bejarano - Software Engineer",
@@ -50,6 +51,7 @@ export default async function RootLayout({
             <Footer />
           </div>
         </div>
+        <Analytics />
       </body>
     </html>
   );
